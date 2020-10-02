@@ -3,4 +3,8 @@
     <string name="title_search">Search</string>
     <string name="title_journal">Journal</string>
     <string name="title_profile">Profile</string>
+    <string-array name="sex_array">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
 </resources>

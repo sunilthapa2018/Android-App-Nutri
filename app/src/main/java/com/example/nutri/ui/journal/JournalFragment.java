@@ -23,13 +23,13 @@ public class JournalFragment extends Fragment {
         journalViewModel =
                 ViewModelProviders.of(this).get(JournalViewModel.class);
         View root = inflater.inflate(R.layout.fragment_journal, container, false);
-        final TextView textView = root.findViewById(R.id.text_journal);
+        /*final TextView textView = root.findViewById(R.id.text_journal);
         journalViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
-        });
+        });*/
         return root;
     }
 }

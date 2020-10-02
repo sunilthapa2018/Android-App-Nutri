@@ -4,28 +4,199 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.search.SearchFragment">
+    android:layout_marginTop="0dp"
+    tools:context=".ui.search.SearchFragment"
+    tools:ignore="ExtraText"
+    android:paddingBottom="?attr/actionBarSize"
+    >
 
-    <TextView
-        android:id="@+id/text_search"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_home_black_24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:id="@+id/fixedImage"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:contentDescription="Image"
+                android:scaleType="fitXY"
+                android:src="@drawable/food" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bottom_border"
+
+                >
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:contentDescription="Image"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/egg"
+                    android:layout_margin="@dimen/margin"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Dairy and Egg Products"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="@dimen/fontSize"
+                    android:onClick="openNewPage"
+                    >
+                </TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bottom_border"
+                >
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:contentDescription="Image"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/spices"
+                    android:layout_margin="@dimen/margin"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Spices and Herbs"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="@dimen/fontSize"
+                    >
+                </TextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bottom_border"
+                >
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:contentDescription="Image"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/babyfoods"
+                    android:layout_margin="@dimen/margin"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Baby Foods"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="@dimen/fontSize"
+                    >
+                </TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bottom_border"
+                >
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:contentDescription="Image"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/fats"
+                    android:layout_margin="@dimen/margin"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fats and Oils"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="@dimen/fontSize"
+                    >
+                </TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bottom_border"
+                >
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:contentDescription="Image"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/poultry"
+                    android:layout_margin="@dimen/margin"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Poultry Products"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="@dimen/fontSize"
+                    >
+                </TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bottom_border"
+                >
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:contentDescription="Image"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/sweets"
+                    android:layout_margin="@dimen/margin"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sweets"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="@dimen/fontSize"
+                    >
+                </TextView>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="12dp"
+        android:contentDescription="submit"
+        android:src="@drawable/search"
+        app:backgroundTint="#2196F3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="#FFFFFF" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
