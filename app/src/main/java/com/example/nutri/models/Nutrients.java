@@ -7,72 +7,72 @@ public class Nutrients {
 
     @SerializedName("ENERC_KCAL")
     @Expose
-    private String energyKcal;
+    private double energyKcal;
 
     @SerializedName("PROCNT")
     @Expose
-    private String proteinCount;
+    private double proteinCount;
 
     @SerializedName("FAT")
     @Expose
-    private String fat;
+    private double fat;
 
     @SerializedName("CHOCDF")
     @Expose
-    private String carbs;
+    private double carbs;
 
     @SerializedName("FIBTG")
     @Expose
-    private String fiber;
+    private double fiber;
 
-    public String getEnergyKcal() {
+    public double getEnergyKcal() {
         return energyKcal;
     }
 
-    public void setEnergyKcal(String energyKcal) {
+    public void setEnergyKcal(float energyKcal) {
         this.energyKcal = energyKcal;
     }
 
-    public String getProteinCount() {
+    public double getProteinCount() {
         return proteinCount;
     }
 
-    public void setProteinCount(String proteinCount) {
+    public void setProteinCount(float proteinCount) {
         this.proteinCount = proteinCount;
     }
 
-    public String getFat() {
+    public double getFat() {
         return fat;
     }
 
-    public void setFat(String fat) {
+    public void setFat(float fat) {
         this.fat = fat;
     }
 
-    public String getCarbs() {
+    public double getCarbs() {
         return carbs;
     }
 
-    public void setCarbs(String carbs) {
+    public void setCarbs(float carbs) {
         this.carbs = carbs;
     }
 
-    public String getFiber() {
+    public double getFiber() {
         return fiber;
     }
 
-    public void setFiber(String fiber) {
+    public void setFiber(float fiber) {
         this.fiber = fiber;
     }
 
     @Override
     public String toString() {
         return "Nutrients{" +
-                "energyKcal='" + energyKcal + '\'' +
-                ", proteinCount='" + proteinCount + '\'' +
-                ", fat='" + fat + '\'' +
-                ", carbs='" + carbs + '\'' +
-                ", fiber='" + fiber + '\'' +
+                "energyKcal=" + energyKcal +
+                ", proteinCount=" + proteinCount +
+                ", fat=" + fat +
+                ", carbs=" + carbs +
+                ", fiber=" + fiber +
                 '}';
     }
 }

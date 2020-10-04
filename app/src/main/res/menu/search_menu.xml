@@ -4,15 +4,12 @@
     app:ignore="NamespaceTypo">
 
     <item
-        android:id="@+id/action_settings"
-        android:title="Settings"
-        android:orderInCategory="100"
-        app:showAsAction="never"/>
-
-<!--    <item
         android:id="@+id/menu_search"
         android:title="@string/title_search"
         appcompat:actionViewClass="androidx.appcompat.widget.SearchView"
-        appcompat:showAsAction="always"/>-->
+        appcompat:showAsAction="always"
+        android:iconifiedByDefault="false"
+        app:iconifiedByDefault="false"
+        />
 
 </menu>

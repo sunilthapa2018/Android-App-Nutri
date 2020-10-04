@@ -13,7 +13,7 @@ public class FoodResponses {
     @Expose
     private String text;
 
-    @SerializedName("parsed")
+    @SerializedName("hints")
     @Expose
     private ArrayList<Parsed> parsed;
 

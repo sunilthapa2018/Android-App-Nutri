@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_search" />
 
     <fragment
+        android:id="@+id/navigation_search_details"
+        android:name="com.example.nutri.SearchDetailsFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search_details" />
+
+    <fragment
         android:id="@+id/navigation_journal"
         android:name="com.example.nutri.ui.journal.JournalFragment"
         android:label="@string/title_journal"
