@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/bottom_border"
+        >
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:contentDescription="Image"
+            android:scaleType="fitXY"
+            android:src="@drawable/egg"
+            android:layout_margin="@dimen/margin"
+            />
+        <TextView
+            android:id="@+id/txtTitleName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dairy and Egg Products"
+            android:layout_gravity="center_vertical"
+            android:textSize="@dimen/fontSize"
+            >
+        </TextView>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

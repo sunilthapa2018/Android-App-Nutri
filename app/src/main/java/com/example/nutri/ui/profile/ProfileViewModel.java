@@ -1,19 +1,42 @@
 package com.example.nutri.ui.profile;
 
+import android.app.Application;
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
+import com.example.nutri.Database.Profile;
+import com.example.nutri.Database.ProfileRepository;
+import java.util.List;
 
-public class ProfileViewModel extends ViewModel {
+public class ProfileViewModel extends AndroidViewModel {
 
-    private MutableLiveData<String> mText;
+    private ProfileRepository repository;
 
-    public ProfileViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is Profile fragment");
+    private LiveData<List<Profile>> allData;
+
+    public ProfileViewModel(@NonNull Application application) {
+        super(application);
+        repository = new ProfileRepository(application);
+        allData = repository.getAllProfiles();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public void insert(Profile profile){
+        repository.insert(profile);
+    }
+
+    public void update(Profile profile){
+        repository.update(profile);
+    }
+
+    public void delete(Profile profile){
+        repository.delete(profile);
+    }
+
+    public void deleteAllNotes(){
+        repository.deleteAllProfiles();
+    }
+
+    public LiveData<List<Profile>> getAllData() {
+        return allData;
     }
 }
