@@ -5,4 +5,5 @@
     <dimen name="margin">8dp</dimen>
     <dimen name="padding">8dp</dimen>
     <dimen name="fontSize">16dp</dimen>
+    <dimen name="fontSizeSmall">14dp</dimen>
 </resources>

@@ -19,8 +19,6 @@ public class JournalViewModel extends AndroidViewModel {
 
     private JournalRepository repository;
 
-    //private LiveData<List<Journal>> allData;
-
     private LiveData<List<Journal>> allDataOfDate;
 
     private String date;
@@ -48,9 +46,6 @@ public class JournalViewModel extends AndroidViewModel {
         repository.deleteAllJournals();
     }
 
-//    public LiveData<List<Journal>> getAllData() {
-//        return allData;
-//    }
 
     public LiveData<List<Journal>> getAllJournalsOfDate(String date) {
         allDataOfDate = repository.getAllJournalsOfDate(date);

@@ -37,6 +37,7 @@ public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapte
         private TextView txtCalories;
         public FoodViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
+
             txtTitle = itemView.findViewById(R.id.txtTitle);
             txtProtein = itemView.findViewById(R.id.txtProtein);
             txtFat = itemView.findViewById(R.id.txtFat);
@@ -82,6 +83,7 @@ public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapte
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String foodName = parsedList.get(position).getFood().getLabel();
                 String protein = precise(parsedList.get(position).getFood().getNutrients().getProteinCount());
                 String fats = precise(parsedList.get(position).getFood().getNutrients().getFat());

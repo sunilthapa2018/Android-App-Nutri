@@ -85,10 +85,10 @@ public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecycler
         holder.txtFoodType.setText(currentJournal.getFoodType());
         holder.txtFoodQuantity.setText(String.valueOf(currentJournal.getQuantity()) + unit);
         holder.txtFoodName.setText(currentJournal.getFoodName());
-        holder.txtCalories.setText(String.valueOf(currentJournal.getCalories()) + " KCal");
-        holder.txtProtein.setText(String.valueOf(currentJournal.getProtein()) + unit + " protein");
-        holder.txtFat.setText(String.valueOf(currentJournal.getFats()) + unit + " fat");
-        holder.txtCarb.setText(String.valueOf(currentJournal.getCarb()) + unit + " carbs");
+        holder.txtCalories.setText(String.valueOf(currentJournal.getCalories()) );
+        holder.txtProtein.setText(String.valueOf(currentJournal.getProtein()) + unit );
+        holder.txtFat.setText(String.valueOf(currentJournal.getFats()) + unit );
+        holder.txtCarb.setText(String.valueOf(currentJournal.getCarb()) + unit );
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

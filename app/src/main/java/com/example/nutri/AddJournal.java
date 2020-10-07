@@ -2,13 +2,9 @@ package com.example.nutri;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentTransaction;
-
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -42,7 +38,6 @@ public class AddJournal extends AppCompatActivity implements DatePickerDialog.On
     private EditText txtFoodQuantity;
     private Spinner txtType;
     private EditText txtDate;
-    private Button btnChangeDate;
     private Button btnSave;
     private float protein;
     private float fats;
@@ -50,6 +45,8 @@ public class AddJournal extends AppCompatActivity implements DatePickerDialog.On
     private int calories;
     private int foodId;
     private int foodQuantity;
+    private String date = "";
+    private static DecimalFormat df2 = new DecimalFormat("#.#");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +59,6 @@ public class AddJournal extends AppCompatActivity implements DatePickerDialog.On
         //journalRepository = new JournalRepository(this.getApplication());
         journalViewModel = new JournalViewModel(this.getApplication());
         Intent intent = getIntent();
-
         calories = Integer.parseInt(removeComa(intent.getStringExtra("calories")));
         String foodName = intent.getStringExtra("foodName");
         protein = Float.parseFloat(removeComa(intent.getStringExtra("protein")));
@@ -77,8 +73,8 @@ public class AddJournal extends AppCompatActivity implements DatePickerDialog.On
         txtFoodQuantity = findViewById(R.id.txtFoodQuantity);
         txtType = findViewById(R.id.txtType);
         txtDate = findViewById(R.id.txtDate);
-        txtDate.setEnabled(false);
-        btnChangeDate = findViewById(R.id.btnChangeDate);
+        txtDate.setFocusable(false);
+
 
         btnSave = findViewById(R.id.btnSave);
 
@@ -112,30 +108,27 @@ public class AddJournal extends AppCompatActivity implements DatePickerDialog.On
         }else{
             foodId = 0;
             txtFoodQuantity.setText("100");
-
             Date c = Calendar.getInstance().getTime();
             SimpleDateFormat df = new SimpleDateFormat("MMM d, yyyy", Locale.getDefault());
             String formattedDate = df.format(c);
-
             txtDate.setText(formattedDate);
 
 
+
+
+
         }
-
-        Log.d("mytag", "onLoaded: calories " + calories + ", " +
-                "protein " + protein + ", " +
-                "fats " + fats + ", " +
-                "carb " + carb + ", " +
-                "quantity " + txtFoodQuantity.getText().toString() + ", " +
-                "");
-
-
-
-        btnChangeDate.setOnClickListener(new View.OnClickListener() {
+        txtDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFragment datePicker = new DatePickerFragment();
-                datePicker.show(getSupportFragmentManager(), "date picker");
+                String newDate = "";
+                try {
+                    Date tempDate=new SimpleDateFormat("MMM d, yyyy").parse(txtDate.getText().toString());
+                    DialogFragment datePicker = new DatePickerFragment(tempDate);
+                    datePicker.show(getSupportFragmentManager(), "date picker");
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -156,24 +149,15 @@ public class AddJournal extends AppCompatActivity implements DatePickerDialog.On
                     float newCalories = (weight/foodQuantity) * calories;
                     newCalories = Math.round(newCalories);
                     int newIntCal = (int) newCalories;
-                    //calories = Math.round(newCalories);
+
                     float newProtein = (weight/foodQuantity) * protein;
-                    newProtein= Float.parseFloat(String.valueOf(newProtein));
-                    //protein = Float.parseFloat(String.valueOf(newProtein));
+                    newProtein= Float.parseFloat(df2.format(newProtein));
+
                     float newFats = (weight/foodQuantity) * fats;
-                    newFats = Float.parseFloat(String.valueOf(newFats));
-                    //fats = Float.parseFloat(String.valueOf(newFats));
+                    newFats = Float.parseFloat(df2.format(newFats));
+
                     float newCarb = (weight/foodQuantity) * carb;
-                    newCarb = Float.parseFloat(String.valueOf(newCarb));
-                    //carb = Float.parseFloat(String.valueOf(newCarb));
-
-                    Log.d("mytag", "on Save Button Click: newCalories " + newCalories + ", " +
-                            "newProtein " + newProtein + ", " +
-                            "newFats " + newFats + ", " +
-                            "newCarb " + newCarb + ", " +
-                            "weight " + weight + ", " +
-                            "");
-
+                    newCarb = Float.parseFloat(df2.format(newCarb));
                     String newDate = "";
                     try {
                         Date tempDate=new SimpleDateFormat("MMM d, yyyy").parse(txtDate.getText().toString());
@@ -183,8 +167,6 @@ public class AddJournal extends AppCompatActivity implements DatePickerDialog.On
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-
-
                     Journal journal = new Journal(foodName,
                             (int) weight,
                             txtType.getSelectedItem().toString(),
@@ -204,12 +186,6 @@ public class AddJournal extends AppCompatActivity implements DatePickerDialog.On
                         journalViewModel.insert(journal);
                         showMsg("Data has been sucessfully Saved");
                     }
-
-                    //journalRepository.insert(journal);
-
-
-
-
                     AddJournal.this.finish();
 
                 }else{

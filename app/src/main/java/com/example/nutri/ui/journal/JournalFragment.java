@@ -1,30 +1,23 @@
 package com.example.nutri.ui.journal;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.nutri.Database.Journal;
 import com.example.nutri.Database.JournalDao;
-import com.example.nutri.Database.JournalRepository;
 import com.example.nutri.R;
 import com.example.nutri.SearchResults;
 import com.example.nutri.adapters.JournalRecyclerAdapter;
@@ -32,14 +25,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 
-public class JournalFragment extends Fragment {
+public class JournalFragment extends Fragment{
 
     private JournalViewModel journalViewModel;
     private RecyclerView mRecyclerView;
@@ -57,6 +48,7 @@ public class JournalFragment extends Fragment {
 
     private Button btnLeft;
     private Button btnRight;
+
     private String fDate;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -72,6 +64,7 @@ public class JournalFragment extends Fragment {
             Date cal = Calendar.getInstance().getTime();
             SimpleDateFormat datef = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
             fDate = datef.format(cal);
+            txtDate.setText(changeDate2(fDate));
         }else{
             fDate = changeDate(dateString);
         }
@@ -99,6 +92,8 @@ public class JournalFragment extends Fragment {
                 String newDate = subtractDate(txtOnDate);
                 fDate = changeDate(newDate);
                 txtDate.setText(newDate);
+                String str = txtDate.getText().toString();
+                fDate = changeDate(str);
                 loadViewModel();
             }
         });
@@ -110,10 +105,11 @@ public class JournalFragment extends Fragment {
                 String newDate = addDate(txtOnDate);
                 fDate = changeDate(newDate);
                 txtDate.setText(newDate);
+                String str = txtDate.getText().toString();
+                fDate = changeDate(str);
                 loadViewModel();
             }
         });
-
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override

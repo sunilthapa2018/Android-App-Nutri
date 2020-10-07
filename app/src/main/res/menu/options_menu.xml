@@ -4,9 +4,14 @@
     app:ignore="NamespaceTypo">
 
     <item
-        android:id="@+id/action_settings"
-        android:title="Settings"
-        android:orderInCategory="100"
+        android:id="@+id/action_privacy_policy"
+        android:title="Privacy Policy"
+        android:orderInCategory="1"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_about_us"
+        android:title="About Us"
+        android:orderInCategory="2"
         app:showAsAction="never"/>
 
 <!--    <item
