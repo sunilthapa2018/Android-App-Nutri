@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -23,19 +26,22 @@ import com.example.nutri.util.Constants;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SearchResults extends AppCompatActivity {
+    public static Activity SearchResultActivityObject;
     public ProgressBar mProgressBar;
     private static final String TAG = "MYTAG";
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private FoodRecyclerAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private String query = "";
     private TextView txtNotFound;
+    private ArrayList<Parsed> parsedList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +51,47 @@ public class SearchResults extends AppCompatActivity {
         txtNotFound = findViewById(R.id.txtNotFound);
         mProgressBar = findViewById(R.id.progress_bar);
 
+        mAdapter = new FoodRecyclerAdapter(parsedList);
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
+
+        mAdapter.setOnItemClickListener(new FoodRecyclerAdapter.OnItemClickListener() {
+            @Override
+            public void OnItemClick(int position) {
+                String foodName = parsedList.get(position).getFood().getLabel();
+                String protein = precise(parsedList.get(position).getFood().getNutrients().getProteinCount());
+                String fats = precise(parsedList.get(position).getFood().getNutrients().getFat());
+                String carb = precise(parsedList.get(position).getFood().getNutrients().getCarbs());
+                String calories = calPrecise(parsedList.get(position).getFood().getNutrients().getEnergyKcal());
+
+                Intent intent = new Intent(SearchResults.this, AddJournal.class);
+                intent.putExtra("foodName", foodName);
+                intent.putExtra("protein", Float.parseFloat(protein));
+                intent.putExtra("fats", Float.parseFloat(fats));
+                intent.putExtra("carb", Float.parseFloat(carb));
+                intent.putExtra("calories", Integer.parseInt(calories));
+                startActivity(intent);
+
+                SearchResults.this.finish();
+            }
+        });
+
+    }
+
+    public String precise(double x) {
+        NumberFormat nf = NumberFormat.getInstance();
+        nf.setMaximumFractionDigits(1);
+        return nf.format(x);
+
+    }
+
+    public String calPrecise(double x) {
+        NumberFormat nf = NumberFormat.getInstance();
+        nf.setMaximumFractionDigits(0);
+        return nf.format(x);
 
     }
 
@@ -85,6 +129,11 @@ public class SearchResults extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
+                if(newText.equals("")) {
+                    if (txtNotFound.getVisibility() == View.VISIBLE) {
+                        txtNotFound.setVisibility(View.GONE);
+                    }
+                }
                 return false;
             }
         });
@@ -107,7 +156,7 @@ public class SearchResults extends AppCompatActivity {
                 Log.d(TAG, "onResponse : Server Response: " + response.toString());
                 if(response.code() == 200){
                     Log.d(TAG, "onResponse: " + response.body());
-                    ArrayList<Parsed> parsedList = response.body().getParsed();
+                    parsedList = response.body().getParsed();
                     if(parsedList.size()==0){
                         txtNotFound.setText("No Data found in the remote server");
                         txtNotFound.setVisibility(View.VISIBLE);
@@ -116,6 +165,8 @@ public class SearchResults extends AppCompatActivity {
                         mAdapter = new FoodRecyclerAdapter(parsedList);
                         mRecyclerView.setLayoutManager(mLayoutManager);
                         mRecyclerView.setAdapter(mAdapter);
+
+
 
                     }
                     mProgressBar.setVisibility(View.GONE);

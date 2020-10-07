@@ -74,9 +74,6 @@ public class SearchFragment extends Fragment {
         return root;
     }
 
-    public void openNewPage(View view) {
-        displayToast("Good Job");
-    }
     public void displayToast(String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }

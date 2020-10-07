@@ -1,9 +1,7 @@
 package com.example.nutri;
 
 import com.example.nutri.models.Parsed;
-
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class FoodItems {
     private ArrayList<Parsed> parsedList;

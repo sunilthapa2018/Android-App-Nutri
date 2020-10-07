@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +7,113 @@
     tools:context=".ui.journal.JournalFragment"
     android:paddingBottom="?attr/actionBarSize"
     >
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/bottom_border"
+        android:weightSum="1"
+
+        >
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:paddingTop="@dimen/padding"
+            android:paddingEnd="@dimen/padding"
+            android:paddingRight="@dimen/padding"
+            android:paddingBottom="@dimen/padding"
+            android:text="Your Journal"
+            android:textSize="25sp"
+            android:textStyle="bold"
+
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <Button
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:id="@+id/btnLeft"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="&lt;&lt;"
+                android:layout_gravity="center"
+
+                >
+            </Button>
+
+            <TextView
+                android:id="@+id/txtDate"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin"
+                android:text="Date"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:id="@+id/btnRight"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="&gt;&gt;"
+                android:layout_gravity="center"
+
+                >
+            </Button>
+
+
+            <TextView
+                android:id="@+id/txtTotalkCal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="KCal"
+                android:textAlignment="textEnd"
+                android:layout_margin="@dimen/margin"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                >
+
+            </TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewJournal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_below="@+id/linearLayout"
+        tools:listitem="@layout/card_journal_list"
+        />
+    <TextView
+        android:id="@+id/txtError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:text="No Data Found"
+        android:textSize="@dimen/fontSize"
+        android:padding="@dimen/padding"
+        android:layout_margin="@dimen/margin"
+        android:visibility="gone"
+        />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -17,7 +124,7 @@
         android:contentDescription="submit"
         android:src="@drawable/add"
         app:backgroundTint="#2196F3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         app:rippleColor="#FFFFFF" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

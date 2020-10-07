@@ -43,8 +43,8 @@ public class ProfileFragment extends Fragment {
         profileViewModel.getAllData().observe(getActivity(), new Observer<List<Profile>>() {
             @Override
             public void onChanged(List<Profile> profiles) {
-                Profile currentData = profiles.get(0);
-                if (currentData != null) {
+                if (profiles.size()>0) {
+                    Profile currentData = profiles.get(0);
                     String name = currentData.getName();
 
                     txtName.setText(name);
@@ -62,13 +62,16 @@ public class ProfileFragment extends Fragment {
                 }
             }
         });
+
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
+
         btnSave = root.findViewById(R.id.btnSave);
         txtName = root.findViewById(R.id.txtName);
         txtAge = root.findViewById(R.id.txtAge);
         txtSex = (Spinner) root.findViewById(R.id.txtSex);
         txtHeight = root.findViewById(R.id.txtHeight);
         txtWeight = root.findViewById(R.id.txtWeight);
+
 
 
         btnSave.setOnClickListener(new View.OnClickListener() {
