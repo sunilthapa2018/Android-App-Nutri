@@ -18,8 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddJournal" />
-        <activity android:name=".SearchResults" />
+        <activity android:name=".ui.journal.AddJournal" />
+        <activity android:name=".ui.search.SearchResults" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">

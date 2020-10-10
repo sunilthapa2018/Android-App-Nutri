@@ -4,8 +4,8 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import com.example.nutri.Database.Profile;
-import com.example.nutri.Database.ProfileRepository;
+import com.example.nutri.Database.Profile.Profile;
+import com.example.nutri.Database.Profile.ProfileRepository;
 import java.util.List;
 
 public class ProfileViewModel extends AndroidViewModel {

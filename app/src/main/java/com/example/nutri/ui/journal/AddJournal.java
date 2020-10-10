@@ -1,4 +1,4 @@
-package com.example.nutri;
+package com.example.nutri.ui.journal;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
@@ -13,15 +13,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.nutri.Database.Journal;
-import com.example.nutri.Database.JournalRepository;
-import com.example.nutri.Database.Profile;
-import com.example.nutri.Database.ProfileRepository;
-import com.example.nutri.ui.journal.JournalFragment;
-import com.example.nutri.ui.journal.JournalViewModel;
-
-import java.text.DateFormat;
+import com.example.nutri.Database.Journal.Journal;
+import com.example.nutri.R;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;

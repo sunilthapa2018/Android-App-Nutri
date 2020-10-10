@@ -16,10 +16,10 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.nutri.Database.Journal;
-import com.example.nutri.Database.JournalDao;
+import com.example.nutri.Database.Journal.Journal;
+import com.example.nutri.Database.Journal.JournalDao;
 import com.example.nutri.R;
-import com.example.nutri.SearchResults;
+import com.example.nutri.ui.search.SearchResults;
 import com.example.nutri.adapters.JournalRecyclerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

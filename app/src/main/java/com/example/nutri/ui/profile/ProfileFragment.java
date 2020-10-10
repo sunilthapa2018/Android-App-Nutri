@@ -11,15 +11,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.nutri.Database.Profile;
-import com.example.nutri.Database.ProfileDao;
-import com.example.nutri.MainActivity;
+import com.example.nutri.Database.Profile.Profile;
 import com.example.nutri.R;
 
 import java.util.ArrayList;

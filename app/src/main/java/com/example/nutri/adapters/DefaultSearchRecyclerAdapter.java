@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.nutri.FoodMenuItems;
+import com.example.nutri.ui.search.FoodMenuItems;
 import com.example.nutri.R;
 import java.util.ArrayList;
 

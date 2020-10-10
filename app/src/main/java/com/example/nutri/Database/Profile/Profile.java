@@ -1,4 +1,4 @@
-package com.example.nutri.Database;
+package com.example.nutri.Database.Profile;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

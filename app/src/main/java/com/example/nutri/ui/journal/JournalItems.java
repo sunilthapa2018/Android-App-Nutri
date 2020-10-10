@@ -1,6 +1,6 @@
-package com.example.nutri;
+package com.example.nutri.ui.journal;
 
-import com.example.nutri.Database.Journal;
+import com.example.nutri.Database.Journal.Journal;
 
 import java.util.ArrayList;
 

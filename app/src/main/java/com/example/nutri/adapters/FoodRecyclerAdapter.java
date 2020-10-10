@@ -10,9 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.nutri.AddJournal;
+import com.example.nutri.ui.journal.AddJournal;
 import com.example.nutri.R;
-import com.example.nutri.SearchResults;
 import com.example.nutri.models.Parsed;
 import java.text.NumberFormat;
 import java.util.ArrayList;

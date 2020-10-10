@@ -1,4 +1,4 @@
-package com.example.nutri.Database;
+package com.example.nutri.Database.Profile;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

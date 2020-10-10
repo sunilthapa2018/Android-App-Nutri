@@ -1,4 +1,4 @@
-package com.example.nutri;
+package com.example.nutri.ui.journal;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;

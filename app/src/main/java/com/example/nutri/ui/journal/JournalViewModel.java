@@ -5,13 +5,9 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-import com.example.nutri.Database.Journal;
-import com.example.nutri.Database.JournalRepository;
-import com.example.nutri.Database.Journal;
-import com.example.nutri.Database.JournalRepository;
+import com.example.nutri.Database.Journal.Journal;
+import com.example.nutri.Database.Journal.JournalRepository;
 
 import java.util.List;
 
@@ -52,5 +48,5 @@ public class JournalViewModel extends AndroidViewModel {
         return allDataOfDate;
     }
 
-    
+
 }

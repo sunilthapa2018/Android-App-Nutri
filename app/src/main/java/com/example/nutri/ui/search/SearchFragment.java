@@ -12,9 +12,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.nutri.adapters.DefaultSearchRecyclerAdapter;
-import com.example.nutri.FoodMenuItems;
 import com.example.nutri.R;
-import com.example.nutri.SearchResults;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;

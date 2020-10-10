@@ -6,6 +6,11 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.nutri.Database.Journal.Journal;
+import com.example.nutri.Database.Journal.JournalDao;
+import com.example.nutri.Database.Profile.Profile;
+import com.example.nutri.Database.Profile.ProfileDao;
+
 @androidx.room.Database(entities = {Profile.class, Journal.class}, version = 3)
 public abstract class Database extends RoomDatabase {
     private static Database instance;

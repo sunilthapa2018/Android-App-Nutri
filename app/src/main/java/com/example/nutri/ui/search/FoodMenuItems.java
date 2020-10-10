@@ -1,4 +1,4 @@
-package com.example.nutri;
+package com.example.nutri.ui.search;
 public class FoodMenuItems {
     private int mImageResource;
     private String txtTitleText;

@@ -1,20 +1,18 @@
 package com.example.nutri.adapters;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.nutri.AddJournal;
-import com.example.nutri.Database.Journal;
+import com.example.nutri.Database.Journal.Journal;
+import com.example.nutri.ui.journal.AddJournal;
+
 import com.example.nutri.R;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecyclerAdapter.JournalViewHolder> {

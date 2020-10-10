@@ -1,4 +1,4 @@
-package com.example.nutri;
+package com.example.nutri.ui.search;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -17,11 +17,13 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.nutri.R;
 import com.example.nutri.adapters.FoodRecyclerAdapter;
 import com.example.nutri.models.Parsed;
 import com.example.nutri.requests.FoodApi;
 import com.example.nutri.requests.ServiceGenerator;
 import com.example.nutri.requests.responses.FoodResponses;
+import com.example.nutri.ui.journal.AddJournal;
 import com.example.nutri.util.Constants;
 import java.io.IOException;
 import java.io.PrintWriter;
